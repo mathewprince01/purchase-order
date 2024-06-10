@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <link rel="stylesheet" href="ooooorder.css">
+   
+</head>
+<body>
+    <div class="mm">
+    <div class="container">
+        <h1>PURCHASE ORDER</h1>
+        <form id="orderForm">
+            <div class="order-section">
+                <div class="row">
+                    <label for="orderId">Order Id</label>
+                    <input type="text" id="orderId" name="orderId" required>
+                    <label  id="orderdatee" for="orderDate">Order Date</label>
+                    <input type="date" id="orderDate" name="orderDate" required>
+                </div>
+                <div class="row">
+                    <label for="vendorName">Vendor</label>
+                    <select id="vendorName" name="vendorName" required>
+                        <option value="" disabled selected>Select Vendor</option>
+                        <!-- Add vendor options here -->
+                        <option value="vendor1">Vendor 1</option>
+                        <option value="vendor2">Vendor 2</option>
+                    </select>
+                    <label id="deli" for="expectedDeliveryDate">Expected Delivery Date</label>
+                    <input type="date" id="expectedDeliveryDate" name="expectedDeliveryDate" required>
+                </div>
+                <div class="row">
+                    <label for="shippingAddress">Shipping Address</label>
+                    <textarea id="shippingAddress" cols="5" rows="10" name="shippingAddress" required></textarea>
+                </div>
+            </div>
+        </form>
+        <form action="">
+            <h3>Line Item</h3>
+            <div class="orderline-section">
+                <div class="roow">
+                    <label id="pro" for="productName">Product</label>
+                    <select id="productName" name="productName"onchange="updateUOM()"required>
+                        <option value="" disabled selected>Select Product</option>
+                        <!-- Add product options here -->
+                        <option value="egg">Egg</option>
+                        <option value="milk">Milk</option>
+                        <option value="biscuit">Biscuit</option>
+                        <option value="water">water</option>
+                        <option value=" oil">oil</option>
+                        <option value="rice">Rice</option>
+
+                    </select>
+                   
+                    <label id="um" for="uom">UOM</label>
+                    <input type="text" id="uom" readonly><br>
+                    <!-- <select id="uom" name="uom" required>
+                        <option value="" disabled selected>Select UOM</option>
+                        <option value="kg">KG</option>
+                        <option value="each">Each</option>
+                        <option value="litre">litre</option>
+                    </select> -->
+                </div>
+                <div class="row">
+                    <label id="qu" for="quantity">Quantity</label>
+                    <input type="number" id="quantity" class="quantity" name="quantity" required>
+                    <label for="unitprice" id="unitpr" class="unitprice">Unit Price</label>
+                    <input type="number"  id="unitprice" class="unit" name="unitprice" required>
+                </div>
+                <div class="rows">
+                    <button id="addButton" type="button" onclick="addItem()">Add</button>
+                    <button id="cancelButton" type="button" onclick="cancelItem()">Cancel</button>
+                </div>
+            </div>
+        </form>
+     
+ 
+            <table>
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>UOM</th>
+                        <th>Unit Price</th>
+                        <th>Total Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="orderLineTable">
+                </tbody>
+            </table>
+ 
+            <div class="buttons">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        
+    </div>
+ </div>
+</div>
+<script src="ooo.js"></script> 
+</body>
+</html>

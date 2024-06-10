@@ -1,0 +1,184 @@
+.mm {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    width: 1500px;
+   
+}
+ 
+.container {
+    width: 90%;
+    margin: auto;
+    border: 1px solid #000;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+ 
+h1 {
+    text-align: center;
+    margin-bottom: 8px;
+    margin-right: 40px;
+    position: relative;
+    bottom: 13px;
+}
+h3{
+ margin-left: 200px;
+
+}
+ 
+.order-section {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #000;
+    width: 900px;
+    margin-left: 200px;
+
+}
+ .orderline-section {
+
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #000;
+    width: 900px;
+    margin-left: 200px;
+
+ }
+
+ .roow{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+ }
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+.rows{
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 405px;
+}
+.uom{
+    margin-left:40px ;
+}
+ 
+label {
+    width: 150px;
+    margin-right: 10px;
+}
+ 
+input, select {
+    flex: 1;
+    padding: 5px;
+    margin-right: 10px;
+    width: 10px;
+}
+input#orderId {
+    width:55px;
+}
+ 
+textarea {
+    resize: none;
+    height: 60px;
+    width: 275px;
+    margin-right:460px;
+}
+#um{
+    margin-right: 11px
+
+}
+label#um {
+    position: relative;
+    right: -23px;
+}
+input#quantity {
+    /* width: 33px; */
+    margin-left: -7px;
+}
+
+.unit{
+    margin-left: 20px;
+    margin-right: 11px
+}
+input#unitprice {
+    position: relative;
+    right: -1px;
+}
+input#unitprice {
+    margin-left: -24px;
+}
+
+#unitpr{
+   position: relative;
+   left:-1px;
+}
+select#productName {
+    width: 34px;
+    position: relative;
+    left: -6px;
+}
+.quantity{
+   
+    margin-right: 40px;
+
+}
+input#orderId {
+    position: absolute;
+    width: 265px;
+    right: 678px;
+}
+label#orderdatee {
+    position: absolute;
+    right: 499px;
+}
+input#orderDate {
+    position: absolute;
+    right: 321px;
+    width: 174px;
+}
+select#vendorName {
+    position: absolute;
+    top: 144px;
+    width: 279px;
+    right: 678px;
+    top: 160px;
+}
+label#deli {
+    position: absolute;
+    right: 500px;
+    top: 161px
+}
+input#expectedDeliveryDate {
+    position: absolute;
+    right: 320px;
+    width: 174px;
+    top: 158px;
+}
+
+button {
+    margin-right:10px;
+}  
+
+ 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+ 
+table, th, td {
+    border: 1px solid #000;
+}
+ 
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+ 
+.buttons {
+    text-align: center;
+    margin-top: 20px;
+}
