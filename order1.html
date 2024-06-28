@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <link rel="stylesheet" href="order1.css">
+</head>
+<body>
+    <div id="title">
+       <h1 id="topheaderindex"> Purchase Orders</h1>
+    </div>
+
+    <button onclick="pop()" class="add-vendor" alt="add-vendor">
+        <img src="add.png">
+    </button>
+
+    <div id="maintable">
+        <table id="masterTable">
+            <thead>
+                <tr>
+                    <th style="width: 100px;">S.No</th>
+                    <th style="width: 150px;">Order Id</th>
+                    <th style="width: 150px;">Vendor</th>
+                    <th style="width: 150px;">Order Date</th>
+                    <th style="width: 150px;">EDD</th>
+                    <th style="width: 150px;">Shipping Address</th>
+                    <th style="width: 120px;">Total Amount</th>
+                    <th style="width: 175px;">Action</th>
+                </tr>
+            </thead>
+            <tbody id="masterTableBody">
+
+            </tbody>
+        </table>
+    </div>
+
+    <div id="pop">
+        <div class="container">
+            <h1 id="headerindex">PURCHASE ORDER</h1>
+            
+            <div id="upper">
+                <form id="orderForm">
+                    <table class="orderTable">
+                        <tr>
+                            <td><label for="orderId" id="Id">Order Id</label></td>
+                            <td><input type="text" id="orderId" name="orderId" class="inputField" onfocusout="orderIdExists()" required></td>
+                            <span id="error-message-orderId" class="error-message"></span>
+                            
+                            <td><label for="orderDate">Order Date</label></td>
+                            <td><input type="date" id="orderDate" name="orderDate" class="inputField" required></td>
+                            <span id="error-message-orderDate" class="error-message"></span>
+                        </tr>
+                        <tr>
+                            <td><label for="vendorName" id="Name">Vendor</label></td>
+                            <td>
+                                <select id="vendorName" name="vendorName" class="inputField" required>
+                                    <option value="" disabled selected>Select Vendor</option>
+                                    <option value="vendor1">Vendor 1</option>
+                                    <option value="vendor2">Vendor 2</option>
+                                </select>
+                                <span id="error-message-vendorName" class="error-message"></span>
+                            </td>
+                            
+                            <td><label for="expectedDeliveryDate">EDD</label></td>
+                            <td><input type="date" id="expectedDeliveryDate" name="expectedDeliveryDate" class="inputField" required></td>
+                            <span id="error-message-expectedDeliveryDate" class="error-message"></span>
+                        </tr>
+                        <tr>
+                            <td><label for="shippingAddress" id="address">Shipping Address</label></td>
+                            <td colspan="3"><textarea id="shippingAddress" rows="2"  name="shippingAddress"  class="inputField"  placeholder=" "></textarea></td>
+                            <span id="error-message-shippingAddress" class="error-message"></span>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+            <fieldset class="field">
+                <legend><h3 id="line-item-title">Add Line Items</h3></legend>
+                <div class="orderline-section">
+                    <form id="orderline">
+                        <table class="orderlineTable">
+                            <tr>
+                                <td><label for="productName">Product</label></td>
+                                <td>
+                                    <select id="productName" name="productName" onchange="changes()" required>
+                                        <option value="" disabled selected>Select Product</option>
+                                        <option value="Egg">Egg</option>
+                                        <option value="Milk">Milk</option>
+                                        <option value="biscuit">Biscuit</option>
+                                        <option value="water">Water</option>
+                                        <option value="oil">Oil</option>
+                                        <option value="rice">Rice</option>
+                                    </select>
+                                    <span id="error-message-productName" class="error-message"></span>
+                                </td>
+                                <td><label for="uom">UOM</label></td>
+                                <td><input type="text" id="uom" readonly></td>
+                            </tr>
+                            <tr>
+                                <td><label for="quantity">Quantity</label></td>
+                                <td><input type="number" id="quantity" class="quantity" name="quantity" placeholder="Quantity" required></td>
+                                <span id="error-message-quantity" class="error-message"></span>
+                                <td><label for="unitprice">Price</label></td>
+                                <td><input type="number" id="unitprice" class="unit" name="unitprice" placeholder="Price" required></td>
+                                <span id="error-message-unitprice" class="error-message"></span>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="buttons">
+                                    <button id="addButton" type="button" onclick="addItem()">Add</button>
+                                    <button id="cancelButton" type="button" onclick="resetOrderLineInputs()">Clear</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                    <table class="lineTable">
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>UOM</th>
+                                <th>Price</th>
+                                <th>Total Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderLineTable">
+
+                        </tbody>
+                    </table>   
+                </div>
+            </fieldset>
+            
+            <div id="but" class="buttons">
+                <button type="submit" id="submitButton" onclick="handleSubmit()">Submit</button>
+                <button type="button" onclick="off()">Cancel</button>
+            </div> 
+        </div> 
+    </div>
+
+<!-- Full view of Order -->
+<div class="fullview" id="fullview">
+    <div class="fullviewpage">
+        <div>
+        <span class="closebtn" onclick="closeFullView()">&times;</span>
+        <table id="information">
+            <tr>
+                <th colspan="3" class="heading">Purchase Order</th>
+            </tr>
+            <tr>
+                <th class="vendor">Vendor Info</th>
+                <th colspan="2" class="order">Order Info</th>
+            </tr>
+            <tr>
+                <td class="vendordata" id="viname">--</td>
+                <td class="orderdata">Order Id : </td>
+                <td class="orderdata2" id="oiid">--</td>
+            </tr>
+            <tr>
+                <td class="orderdata">Order Date : </td>
+                <td class="orderdata2" id="oidate">--</td>
+            </tr>
+            <tr>
+            
+                <td class="orderdata">EDD : </td>
+                <td class="orderdata2" id="oiedd">--</td>
+            </tr>
+        </table>
+        
+        <table id="fullviewTable">
+            <thead>
+                <caption>Line Items</caption>
+                <tr>
+                    <th style="width: 80px;">S.no</th>
+                    <th style="width: 400px;">Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody id="check">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+    <script src="order1.js"></script> 
+</body>
+</html>
